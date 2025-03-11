@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>날씨 정보 대시보드</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>하늘을 나는 꿈, UAM</h1>
+      </header>
+
+      <main>
+        <section class="weather-section">
+          <div class="section-header">
+            <div class="tabs">
+              <button id="current-tab" class="tab-btn active">
+                현재 날씨 정보
+              </button>
+              <button id="future-tab" class="tab-btn">미래 날씨 정보</button>
+            </div>
+            <button id="refresh-btn" class="btn primary-btn">
+              날씨 데이터 새로고침
+            </button>
+          </div>
+
+          <!-- 현재 날씨 정보 컨테이너 -->
+          <div id="current-weather-container" class="weather-container">
+            <!-- 날씨 데이터가 여기에 표시됩니다 -->
+            <p class="loading">데이터 로딩 중...</p>
+          </div>
+
+          <!-- 미래 날씨 정보 컨테이너 (초기에는 숨김) -->
+          <div
+            id="future-weather-container"
+            class="weather-container"
+            style="display: none"
+          >
+            <div class="time-selector">
+              <button id="prev-time" class="btn time-btn">◀</button>
+              <span id="selected-time">오늘 00:00</span>
+              <button id="next-time" class="btn time-btn">▶</button>
+            </div>
+            <div class="time-info">
+              <span class="help-text"
+                >* 현재 시간 이후 24시간 내의 날씨만 조회 가능합니다.</span
+              >
+            </div>
+            <div id="future-weather-data" class="weather-container">
+              <p class="loading">데이터 로딩 중...</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="location-section">
+          <h2>위치 관리</h2>
+
+          <div class="location-candidates">
+            <table id="location-table">
+              <thead>
+                <tr>
+                  <th>위치명</th>
+                  <th>작업</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- 위치 후보 데이터가 여기에 표시됩니다 -->
+                <tr>
+                  <td colspan="2" class="loading">데이터 로딩 중...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- 협력 기관 섹션 추가 -->
+        <section class="collaborator-section">
+          <h2>Collaborator</h2>
+          <div class="logo-container">
+            <img src="logo/kt.png" alt="KT 로고" class="partner-logo" />
+            <img src="logo/hyundai.png" alt="현대 로고" class="partner-logo" />
+            <img
+              src="logo/korean_air.png"
+              alt="대한항공 로고"
+              class="partner-logo"
+            />
+            <img
+              src="logo/incheon_airport.png"
+              alt="인천공항 로고"
+              class="partner-logo"
+            />
+            <img
+              src="logo/hyundai2.png"
+              alt="현대건설 로고"
+              class="partner-logo"
+            />
+            <img
+              src="logo/airkorea.png"
+              alt="기상청 로고"
+              class="partner-logo"
+            />
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <p>© 2025 날씨 정보 대시보드</p>
+      </footer>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+      // UAM 상태 이유 표시 함수 (전역 스코프에 추가)
+      function showUamStatusReason(element, reason) {
+        const reasonElement = element.querySelector(".uam-reason");
+        if (reasonElement.style.display === "none") {
+          reasonElement.style.display = "block";
+        } else {
+          reasonElement.style.display = "none";
+        }
+      }
+    </script>
+  </body>
+</html>
