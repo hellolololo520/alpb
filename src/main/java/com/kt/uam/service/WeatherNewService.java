@@ -204,7 +204,7 @@ public class WeatherNewService {
         }
     }
 
-    @Scheduled(fixedRate = 300000) // 5분마다 실행
+    @Scheduled(fixedRate = 1800000) // 30분마다 실행
     @Transactional
     public void scheduleWeatherDataConversion() {
         convertAndSaveWeatherData();
